@@ -1,7 +1,6 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.1.1'
-gem 'pg'
 gem 'devise', '~> 1.4.4'
 gem 'thin'
 
@@ -16,10 +15,7 @@ end
 gem 'jquery-rails'
 
 group :development do
-  gem 'heroku'
   gem 'foreman', '~> 0.20.0'
-  gem 'pry'
-  gem 'pry-doc'
 end
 
 group :test do
