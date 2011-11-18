@@ -1,0 +1,3 @@
+source 'http://rubygems.org'
+
+gem 'faker', :git => 'git://github.com/kytrinyx/faker.git'
