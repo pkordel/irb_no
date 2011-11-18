@@ -1,0 +1,3 @@
+I'm including a Gemfile that points to my fork of faker on github, since there are a couple of bugfixes that haven't been pulled upstream yet.
+
+Also including an .rvmrc file so you don't pollute your global gemspace with this version of faker.
