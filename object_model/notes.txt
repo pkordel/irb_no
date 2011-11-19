@@ -1,0 +1,98 @@
+= Ruby's Object Model =
+
+== What's an object? ==
+
+"What *is* an object?"
+
+A very difficult question.
+
+== What does an object contain? ==
+
+What does an object exists of?
+
+Three important things:
+
+=== Answers ===
+
+1. Identity
+2. State         - otherwise all objects are equal
+3. Class pointer - what something *is*
+
+== What does a class contain? ==
+
+What does a class exists of?
+
+Why do we have classes?
+
+=== Answers ===
+
+1. Identity
+2. State
+3. Class pointer
+4. Method table
+5. Super class
+
+
+class String
+  def hello
+    p :hello
+  end
+end
+
+== How does method lookup work? ==
+
+Let's ignore modules for now; how does method lookup work?
+
+=== Answer ===
+
+One to the right; then all to the top.
+
+And here's the rule if we _don't_ ignore modules:
+
+One to the right; then all to the top.
+
+== What about class methods? ==
+
+User.all
+
+What about User.all?
+
+What about Base.all?
+
+What are the implications this limitation?
+
+=== Solution ===
+
+class User
+  def self.foo; end
+
+  singleton_class.class_eval do
+    def foo; end
+  end
+end
+
+Dynamic:
+
+Every time you try to access the metaclass
+and it does not exist, it's created!
+
+Something.class # => Does *not* give you the class pointer
+
+== What about object methods? ==
+
+They are easier than class methods!
+
+== Singleton classes ==
+
+The singleton class of a class is called a *metaclass*.
+
+The singleton class of an object is called an *eigenclass*.
+
+  class << something
+    # Enters the singleton class of something
+  end
+  
+  def something.val
+    # Defines #val in the singleton class of something
+  end
+
